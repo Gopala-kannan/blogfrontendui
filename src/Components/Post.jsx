@@ -7,7 +7,7 @@ function Post() {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('https://blog-jet-two-63.vercel.app/api/details/')
+        fetch('https://blogbackendserver-590e.onrender.com/api/details/')
             .then(response => response.json())
             .then(data => setBlogs(data))
             .catch(error => console.error('Error fetching blogs:', error));

@@ -26,7 +26,7 @@ function Register() {
             return;
         }
         try{
-            const res = await axios.post('https://blog-jet-two-63.vercel.app/api/register/', formData)
+            const res = await axios.post('https://blogbackendserver-590e.onrender.com/api/register/', formData)
             toast.success(res.data.message);
             setTimeout(()=>{
                 navigate('/login');

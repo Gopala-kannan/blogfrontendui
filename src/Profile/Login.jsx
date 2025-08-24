@@ -19,7 +19,7 @@ function Login() {
     const handleSubmit = async(e)=>{
         e.preventDefault();
         try{
-            const res = await axios.post('https://blog-jet-two-63.vercel.app/api/login/',{
+            const res = await axios.post('https://blogbackendserver-590e.onrender.com/api/login/',{
                 username: formData.username,
                 password: formData.password
             })

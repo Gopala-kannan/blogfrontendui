@@ -41,7 +41,7 @@ function Blog() {
         }
 
         try {
-            await axios.post('https://blog-jet-two-63.vercel.app/api/blog/', blogData, {
+            await axios.post('https://blogbackendserver-590e.onrender.com/api/blog/', blogData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Token ${localStorage.getItem('token')}`,

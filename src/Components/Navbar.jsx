@@ -23,7 +23,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      await fetch('https://blog-jet-two-63.vercel.app/api/logout/', {
+      await fetch('https://blogbackendserver-590e.onrender.com/api/logout/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
