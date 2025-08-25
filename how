@@ -1,0 +1,84 @@
+[33mcommit 8eaa5211a7b86afeec1724a8dca66669729cc12e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Gopala-kannan <gopalakannanekannan@gmail.com>
+Date:   Sun Aug 24 16:02:02 2025 +0530
+
+    first commit
+
+[1mdiff --git a/src/Components/Blog.jsx b/src/Components/Blog.jsx[m
+[1mindex b515c6d..4744c2f 100644[m
+[1m--- a/src/Components/Blog.jsx[m
+[1m+++ b/src/Components/Blog.jsx[m
+[36m@@ -41,7 +41,7 @@[m [mfunction Blog() {[m
+         }[m
+ [m
+         try {[m
+[31m-            await axios.post('https://blog-jet-two-63.vercel.app/api/blog/', blogData, {[m
+[32m+[m[32m            await axios.post('https://blogbackendserver-590e.onrender.com/api/blog/', blogData, {[m
+                 headers: {[m
+                     'Content-Type': 'multipart/form-data',[m
+                     Authorization: `Token ${localStorage.getItem('token')}`,[m
+[1mdiff --git a/src/Components/Navbar.jsx b/src/Components/Navbar.jsx[m
+[1mindex 8666e70..7d338d3 100644[m
+[1m--- a/src/Components/Navbar.jsx[m
+[1m+++ b/src/Components/Navbar.jsx[m
+[36m@@ -23,7 +23,7 @@[m [mfunction Navbar() {[m
+ [m
+   const handleLogout = async () => {[m
+     try {[m
+[31m-      await fetch('https://blog-jet-two-63.vercel.app/api/logout/', {[m
+[32m+[m[32m      await fetch('https://blogbackendserver-590e.onrender.com/api/logout/', {[m
+         method: 'POST',[m
+         headers: {[m
+           'Content-Type': 'application/json',[m
+[1mdiff --git a/src/Components/Post.jsx b/src/Components/Post.jsx[m
+[1mindex 1b0cf73..2dc73cd 100644[m
+[1m--- a/src/Components/Post.jsx[m
+[1m+++ b/src/Components/Post.jsx[m
+[36m@@ -7,7 +7,7 @@[m [mfunction Post() {[m
+     const [blogs, setBlogs] = useState([]);[m
+ [m
+     useEffect(() => {[m
+[31m-        fetch('https://blog-jet-two-63.vercel.app/api/details/')[m
+[32m+[m[32m        fetch('https://blogbackendserver-590e.onrender.com/api/details/')[m
+             .then(response => response.json())[m
+             .then(data => setBlogs(data))[m
+             .catch(error => console.error('Error fetching blogs:', error));[m
+[1mdiff --git a/src/Pages/Home.jsx b/src/Pages/Home.jsx[m
+[1mindex 302db68..18ff0ce 100644[m
+[1m--- a/src/Pages/Home.jsx[m
+[1m+++ b/src/Pages/Home.jsx[m
+[36m@@ -7,7 +7,7 @@[m [mfunction Home() {[m
+     const [blogs, setBlogs] = useState([]);[m
+ [m
+     useEffect(() => {[m
+[31m-        fetch('https://blog-jet-two-63.vercel.app/api/details/')[m
+[32m+[m[32m        fetch('https://blogbackendserver-590e.onrender.com/api/details/')[m
+             .then(response => response.json())[m
+             .then(data => {[m
+                 console.log("Fetched blogs:", data);[m
+[1mdiff --git a/src/Profile/Login.jsx b/src/Profile/Login.jsx[m
+[1mindex fd1ff63..268734f 100644[m
+[1m--- a/src/Profile/Login.jsx[m
+[1m+++ b/src/Profile/Login.jsx[m
+[36m@@ -19,7 +19,7 @@[m [mfunction Login() {[m
+     const handleSubmit = async(e)=>{[m
+         e.preventDefault();[m
+         try{[m
+[31m-            const res = await axios.post('https://blog-jet-two-63.vercel.app/api/login/',{[m
+[32m+[m[32m            const res = await axios.post('https://blogbackendserver-590e.onrender.com/api/login/',{[m
+                 username: formData.username,[m
+                 password: formData.password[m
+             })[m
+[1mdiff --git a/src/Profile/Register.jsx b/src/Profile/Register.jsx[m
+[1mindex 93ec265..e0aff41 100644[m
+[1m--- a/src/Profile/Register.jsx[m
+[1m+++ b/src/Profile/Register.jsx[m
+[36m@@ -26,7 +26,7 @@[m [mfunction Register() {[m
+             return;[m
+         }[m
+         try{[m
+[31m-            const res = await axios.post('https://blog-jet-two-63.vercel.app/api/register/', formData)[m
+[32m+[m[32m            const res = await axios.post('https://blogbackendserver-590e.onrender.com/api/register/', formData)[m
+             toast.success(res.data.message);[m
+             setTimeout(()=>{[m
+                 navigate('/login');[m
