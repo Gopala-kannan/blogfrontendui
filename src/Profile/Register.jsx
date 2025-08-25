@@ -32,7 +32,8 @@ function Register() {
                 navigate('/login');
             }, 1000)
         }catch(err){
-            toast.error(err.response.data.error?.confirm_password || err.response.data.message)
+            const errorMsg = err.response?.data?.error?.confirm_password || err.response?.data?.message || "Registration failed. Please try again.";
+            toast.error(errorMsg);
         }
     }
 
@@ -50,6 +51,7 @@ function Register() {
                             name="username"
                             className="w-full border border-gray-300 p-2 rounded"
                             onChange={handleChange}
+                            autoComplete="username"
                         />
                     </div>
 
@@ -60,6 +62,7 @@ function Register() {
                             name="email"
                             className="w-full border border-gray-300 p-2 rounded"
                             onChange={handleChange}
+                            autoComplete="email"
                         />
                     </div>
 
@@ -71,6 +74,7 @@ function Register() {
                                 name='password'
                                 className="w-full border border-gray-300 p-2 rounded"
                                 onChange={handleChange}
+                                autoComplete="new-password"
                             />
                         </div>
                     </div>
@@ -82,6 +86,7 @@ function Register() {
                                 name='confirm_password'
                                 className="w-full border border-gray-300 p-2 rounded"
                                 onChange={handleChange}
+                                autoComplete="new-password"
                             />
                         </div>
                     </div>
