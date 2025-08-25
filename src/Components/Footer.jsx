@@ -15,10 +15,10 @@ function Footer() {
 
         <div className="flex space-x-4">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition duration-300">
-            <i class="fa-brands fa-facebook"></i>
+            <i className="fa-brands fa-facebook"></i>
           </a>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition duration-300">
-            <i class="fa-brands fa-x-twitter"></i>
+            <i className="fa-brands fa-x-twitter"></i>
           </a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition duration-300">
             <i className="fa-brands fa-instagram"></i>

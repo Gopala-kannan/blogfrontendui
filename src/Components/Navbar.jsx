@@ -60,7 +60,7 @@ function Navbar() {
               
                 onClick={handleLogout}
                 className="text-white font-bold cursor-pointer bg-blue-600 px-2 py-1 rounded-md hover:bg-blue-700"
-              ><i class="fa-solid fa-user" style={{marginRight:'10px'}}></i>
+              ><i className="fa-solid fa-user" style={{marginRight:'10px'}}></i>
                 Logout
               </button>
             
