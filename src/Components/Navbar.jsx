@@ -66,7 +66,7 @@ function Navbar() {
             
           </div>
 
-          <button id="mobile-menu-btn" className="md:hidden text-white">
+          <button id="mobile-menu-btn" className="md:hidden text-white" title="Open mobile menu" aria-label="Open mobile menu">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>

@@ -9,9 +9,9 @@ function Blog() {
         title: '',
         content: '',
     });
-    const [imageFile, setImageFile] = useState();
-    const [preview, setPreview] = useState();
-    const [error, setError] = useState();
+    const [imageFile, setImageFile] = useState(null);
+    const [preview, setPreview] = useState(null);
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -29,6 +29,15 @@ function Blog() {
             setPreview(URL.createObjectURL(file));
         }
     };
+
+    // Clean up preview URL to avoid memory leaks
+    React.useEffect(() => {
+        return () => {
+            if (preview) {
+                URL.revokeObjectURL(preview);
+            }
+        };
+    }, [preview]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -67,36 +76,45 @@ function Blog() {
 
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label className="block mb-1 font-medium">Title</label>
+                        <label htmlFor="blog-title" className="block mb-1 font-medium">Title</label>
                         <input
+                            id="blog-title"
                             type="text"
                             name="title"
                             className="w-full border border-gray-300 p-2 rounded"
                             value={formData.title}
                             onChange={handleChange}
                             required
+                            placeholder="Enter blog title"
+                            title="Blog Title"
                         />
                     </div>
 
                     <div className="mb-4">
-                        <label className="block mb-1 font-medium">Content</label>
+                        <label htmlFor="blog-content" className="block mb-1 font-medium">Content</label>
                         <textarea
+                            id="blog-content"
                             name="content"
                             rows="5"
                             className="w-full border border-gray-300 p-2 rounded"
                             value={formData.content}
                             onChange={handleChange}
                             required
+                            placeholder="Write your blog content here"
+                            title="Blog Content"
                         />
                     </div>
 
                     <div className="mb-4">
-                        <label className="block mb-1 font-medium">Upload Image</label>
+                        <label htmlFor="blog-image" className="block mb-1 font-medium">Upload Image</label>
                         <input
+                            id="blog-image"
                             type="file"
                             accept="image/*"
                             className="w-full"
                             onChange={handleImageChange}
+                            placeholder="Choose an image"
+                            title="Blog Image"
                         />
                     </div>
 
