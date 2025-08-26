@@ -25,6 +25,7 @@ function Register() {
             toast.danger("password do not match");
             return;
         }
+        // https://blogbackendserver-590e.onrender.com
         try{
             const res = await axios.post('https://blogbackendserver-590e.onrender.com/api/register/', formData)
             toast.success(res.data.message);
@@ -36,6 +37,7 @@ function Register() {
             toast.error(errorMsg);
         }
     }
+    
 
     return (
         <>
@@ -43,7 +45,7 @@ function Register() {
                 <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
 
                 <ToastContainer position='top-center' autoClose={3000} />
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} method='POST'>
                     <div className="mb-4">
                         <label className="block mb-1 font-medium">Name</label>
                         <input
